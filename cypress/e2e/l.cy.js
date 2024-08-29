@@ -11,10 +11,10 @@ describe('Login', () => {
   
       cy.get('[data-test=password]').type('secret_sauce')
   
-      cy.get('[data-test="login-button"]').click()
+      cy.get('#login-button').click()
   
       // Assert
-      cy.url().should('eq', 'https://www.saucedemo.com/inventory.html')
+      cy.url().should('eq', 'www.saucedemo.com/v1/inventory.html')
   
       cy.screenshot('login')
     })
