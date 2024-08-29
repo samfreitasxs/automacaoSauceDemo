@@ -1,0 +1,16 @@
+{
+  "name": "automacaosaucedemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:web": "npx cypress open",
+    "cypress:headless": "npx cypress run"
+  },
+  "keywords": [],
+  "author": "Samuel Freitas",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.17.4"
+  }
+}
