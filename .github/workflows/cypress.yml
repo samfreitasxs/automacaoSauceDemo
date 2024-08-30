@@ -1,0 +1,31 @@
+name: Pipeline de Testes Cypress 🚀
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: "0 8 * * *"
+
+jobs:
+  test:
+    name: Pipeline de Testes Cypress ⏱️
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código ⏱️
+        uses: actions/checkout@v2
+
+      - name: Configurar o Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Instalar as dependências 🚀
+        run: npm install
+
+      - name: Executar os testes ⏱️
+        run: npx cypress run 🚀
