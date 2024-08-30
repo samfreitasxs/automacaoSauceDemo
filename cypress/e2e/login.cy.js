@@ -1,5 +1,6 @@
 import Login from '../pages/login'
-import Inventory from '../pages/invetory'
+import inventory from '../pages/inventory'
+
 
 describe('Login', () => {
 
@@ -9,14 +10,16 @@ describe('Login', () => {
     })
   
     it('Realizar login com sucesso', () => {
+      
       // Act
       Login.preencherCredenciaisValidas()
   
       // Assert
-      Inventory.validarAcessoaPagina()
+      inventory.validarAcessoaPagina()
     })
-  
+
     it('Realizar login informando credenciais inválidas', () => {
+      
       // Act
       Login.preencherCredenciaisInvalidas()
   

@@ -8,7 +8,10 @@ validarAcessoaPagina() {
     }
     adicionarProduto() {
         cy.get(el.addToCart).click();
+    }
 
+    removerProduto() {
+        cy.get('.btn_secondary').click()
     }
 }
 

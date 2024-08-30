@@ -10,6 +10,13 @@ class Header {
     navegarParaCarrinho () {
         cy.get(el.cartContainer).click()
     }
+
+    validarCarrinhoSemItens() {
+        cy.get(el.cartBadge)
+        .should('not.exist')
+
+      cy.screenshot('produto removido')
+ }
 }
 
 export default new Header

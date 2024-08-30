@@ -1,6 +1,7 @@
 import login from '../pages/login'
 import inventory from '../pages/inventory'
 import header from '../pages/header'
+import cart from '../pages/cart'
 
 
 describe('Carrinho', () => {
@@ -18,28 +19,19 @@ describe('Carrinho', () => {
     inventory.adicionarProduto('Sauce Labs Backpack')
     // Assert
     header.validarQuepossuiItens(qtdItensAdicionados)
-
     header.navegarParaCarrinho()
 
-    cy.contains('Sauce Labs Backpack').should('be.visible')
-
-    cy.screenshot('produto adicionado')
+    cart.validarprodutonoCarrinho('Sauce Labs Backpack')
   })
 
   it('Remover produto do carrinho com sucesso', () => {
     // Arrange
-    cy.get(':nth-child(1) > .pricebar > .btn_primary').click()
-
-    cy.get('.shopping_cart_badge')
-      .should('be.visible')
-
+    inventory.adicionarProduto()
+    
     // Act
-    cy.get('.btn_secondary').click()
+    inventory.removerProduto()
 
     // Assert
-    cy.get('.shopping_cart_badge')
-      .should('not.exist')
-
-    cy.screenshot('produto removido')
+    header.validarCarrinhoSemItens()
   })
 })
