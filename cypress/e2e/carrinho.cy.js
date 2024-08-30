@@ -1,4 +1,7 @@
-import login from "../pages/login"
+import login from '../pages/login'
+import inventory from '../pages/inventory'
+import header from '../pages/header'
+
 
 describe('Carrinho', () => {
 
@@ -11,14 +14,12 @@ describe('Carrinho', () => {
 
   it('Adicionar produto ao carrinho com sucesso', () => {
     // Act
-    cy.get(':nth-child(1) > .pricebar > .btn_primary').click()
-
+    const qtdItensAdicionados = 1
+    inventory.adicionarProduto('Sauce Labs Backpack')
     // Assert
-    cy.get('.shopping_cart_badge')
-      .should('be.visible')
-      .and('have.text', '1')
+    header.validarQuepossuiItens(qtdItensAdicionados)
 
-    cy.get('#shopping_cart_container').click()
+    header.navegarParaCarrinho()
 
     cy.contains('Sauce Labs Backpack').should('be.visible')
 
